@@ -1,6 +1,6 @@
 # Weather-App
 The link to the project is here:
-
+https://akaur425.github.io/Weather-App/
 
 The project is about displaying real-time weather information for cities around the world using a modern, interactive, card-based interface. Users can search for any city or country and view detailed weather metrics fetched from a live weather API.
 
