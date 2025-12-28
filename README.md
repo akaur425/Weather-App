@@ -4,7 +4,7 @@ The link to the project is here:
 
 The project is about displaying real-time weather information for cities around the world using a modern, interactive, card-based interface. Users can search for any city or country and view detailed weather metrics fetched from a live weather API.
 
-#Instructions for Building and Running the Project
+#Instructions for Building and Running the Project:
 
 =>This project is already deployed using GitHub Pages
 
@@ -12,7 +12,7 @@ The project is about displaying real-time weather information for cities around 
 
 =>Users can access the application directly through the link above
 
-#The List of Features to Be Considered
+#The List of Features to Be Considered:
 
 =>Fetches real-time weather data using WeatherAPI
 
@@ -52,7 +52,7 @@ The project is about displaying real-time weather information for cities around 
 
 =>Switzerland
 
-#Weather Data Displayed
+#Weather Data Displayed:
 
 =>Temperature (°C)
 
@@ -78,7 +78,7 @@ The project is about displaying real-time weather information for cities around 
 
 =>Precipitation
 
-#Instructions on Using the Site
+#Instructions on Using the Site:
 
 =>When the site loads, weather data for a default city is displayed
 
@@ -92,7 +92,7 @@ The project is about displaying real-time weather information for cities around 
 
 =>All weather data updates dynamically without reloading the page
 
-#Technologies Used
+#Technologies Used:
 
 =>HTML
 
@@ -104,7 +104,7 @@ The project is about displaying real-time weather information for cities around 
 
 =>WeatherAPI (via RapidAPI)
 
-#API Usage
+#API Usage:
 
 =>Weather data is fetched from WeatherAPI
 
