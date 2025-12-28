@@ -1,0 +1,418 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* html{
+            background-image:url(pastel-colored-sky-with-soft-fluffy-clouds-creating-a-calming-and-peaceful-atmosphere-the-blue-sky-blends-harmoniously-with-the-pastel-hues-evoking-a-sense-of-tranquility-photo.jpg);
+        } */
+
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+.navbar {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.navbar-brand,
+.nav-link {
+    color: #fff !important;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    color: #ffd700 !important;
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+}
+
+.form-control,
+.btn-outline-success {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+}
+
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.form-control:focus {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: #ffd700;
+    color: #fff;
+    box-shadow: 0 0 0 0.25rem rgba(255, 215, 0, 0.25);
+}
+
+.btn-outline-success {
+    color: #fff;
+    border-color: #ffd700;
+}
+
+.btn-outline-success:hover {
+    background: #ffd700;
+    color: #667eea;
+    border-color: #ffd700;
+}
+
+.container {
+    max-width: 1400px;
+    padding: 2rem 1rem;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin: 2rem 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    font-weight: 700;
+}
+
+/* Carousel Container */
+.carousel-container {
+    position: relative;
+    height: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 3rem 0;
+    perspective: 1500px;
+}
+
+.cards-carousel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.weather-card {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
+    overflow-x: hidden;
+    cursor: pointer;
+}
+
+.weather-card::-webkit-scrollbar {
+    width: 6px;
+}
+
+.weather-card::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.weather-card::-webkit-scrollbar-thumb {
+    background: rgba(255, 215, 0, 0.5);
+    border-radius: 10px;
+}
+
+.weather-card::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 215, 0, 0.7);
+}
+
+/* Card positions */
+.weather-card.center {
+    z-index: 10;
+    width: 450px;
+    max-height: 650px;
+    transform: translateX(0) scale(1);
+    opacity: 1;
+    filter: blur(0);
+}
+
+.weather-card.left {
+    z-index: 5;
+    width: 300px;
+    max-height: 450px;
+    transform: translateX(-400px) scale(0.8);
+    opacity: 0.6;
+    filter: blur(1px);
+}
+
+.weather-card.right {
+    z-index: 5;
+    width: 300px;
+    max-height: 450px;
+    transform: translateX(400px) scale(0.8);
+    opacity: 0.6;
+    filter: blur(1px);
+}
+
+.weather-card.hidden {
+    z-index: 1;
+    opacity: 0;
+    transform: scale(0.5);
+    pointer-events: none;
+}
+
+.weather-card:hover:not(.center) {
+    transform: translateX(var(--hover-x, 0)) scale(0.85);
+    opacity: 0.8;
+}
+
+.weather-card.left:hover {
+    --hover-x: -400px;
+}
+
+.weather-card.right:hover {
+    --hover-x: 400px;
+}
+
+.weather-card.center:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4);
+}
+
+.card-header {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.3), rgba(255, 165, 0, 0.3));
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.card-header h4 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 1.4rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.card-body {
+    padding: 2rem 1.5rem;
+}
+
+.card-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.weather-card.center .card-title {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+}
+
+.card-title span {
+    color: #ffd700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.list-unstyled {
+    padding: 0;
+    margin: 0;
+}
+
+.list-unstyled li {
+    padding: 0.8rem;
+    margin: 0.5rem 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    border-left: 3px solid #ffd700;
+    transition: all 0.3s ease;
+}
+
+.list-unstyled li:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(5px);
+}
+
+.list-unstyled li span {
+    color: #ffd700;
+    font-weight: 600;
+}
+
+.btn-units {
+    width: 100%;
+    padding: 0.8rem;
+    background: linear-gradient(135deg, #ffd700, #ffed4e);
+    border: none;
+    border-radius: 10px;
+    color: #667eea;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+    margin-top: 1rem;
+}
+
+.btn-units:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
+    background: linear-gradient(135deg, #ffed4e, #ffd700);
+}
+
+/* Card-specific styling */
+.card-1 {
+    border-top: 3px solid #00d4ff;
+}
+
+.card-2 {
+    border-top: 3px solid #ff00ff;
+}
+
+.card-3 {
+    border-top: 3px solid #00ff88;
+}
+
+/* Navigation Arrows */
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20;
+    background: rgba(255, 215, 0, 0.3);
+    border: 2px solid rgba(255, 215, 0, 0.6);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.carousel-nav:hover {
+    background: rgba(255, 215, 0, 0.6);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-nav.prev {
+    left: 20px;
+}
+
+.carousel-nav.next {
+    right: 20px;
+}
+
+/* Dots Indicator */
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: #ffd700;
+    width: 35px;
+    border-radius: 6px;
+}
+
+.dot:hover {
+    background: rgba(255, 215, 0, 0.6);
+}
+
+/* Table Section */
+h2 {
+    text-align: center;
+    margin: 3rem 0 2rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.table-responsive {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 1.5rem;
+    overflow-x: auto;
+    margin-bottom: 3rem;
+}
+
+.table {
+    color: #fff;
+    margin: 0;
+}
+
+.table thead th {
+    background: rgba(255, 215, 0, 0.2);
+    border: none;
+    padding: 1rem;
+    font-weight: 600;
+}
+
+.table tbody tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.table tbody td,
+.table tbody th {
+    padding: 1rem;
+    border: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .carousel-container {
+        height: 500px;
+    }
+
+    .weather-card.center {
+        width: 350px;
+        height: 480px;
+    }
+
+    .weather-card.left,
+    .weather-card.right {
+        width: 220px;
+        height: 320px;
+    }
+
+    .weather-card.left {
+        transform: translateX(-250px) scale(0.7);
+    }
+
+    .weather-card.right {
+        transform: translateX(250px) scale(0.7);
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+}
